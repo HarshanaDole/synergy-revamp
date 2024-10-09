@@ -1,0 +1,255 @@
+/* Base styles */
+.our-blog-section {
+  background-color: #fff; /* Adjust as needed */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: left;
+  gap: 50px; /* Adjust gap between blog header container and blog posts */
+  flex-wrap: nowrap;
+  padding: 4rem 2rem;
+}
+
+.blog-header-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.blog-name {
+  font-size: 65px;
+  color: #0592c8; /* Adjust color as needed */
+  margin-right: 10px; /* Space between BLOG and vertical line */
+}
+
+.vertical-line {
+  margin-left: 1rem;
+  height: 100px; /* Adjust height as needed */
+  width: 5px; /* Adjust width as needed */
+  background-color: #0592c8; /* Adjust color as needed */
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #014c59; /* Border color and style */
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%; /* Full width */
+  max-width: 500px; /* Adjust as needed */
+  position: relative;
+}
+
+.blog-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Make blog-info take up remaining space */
+}
+
+.blog-info h3 {
+  font-size: 40px;
+  margin: 0 0 10px 0;
+  text-align: end;
+}
+
+.home-blog-date {
+  text-align: end;
+}
+
+.blog-info p {
+  font-size: 20px;
+  margin: 0;
+  color: #666; /* Date color */
+}
+
+.home-blog-image {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+}
+
+.home-blog-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.blog-read-more {
+  margin-left: auto; /* Push button to the right */
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.read-more-button {
+  padding: 10px 20px;
+  background-color: #0592c8; /* Button color */
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.5s ease-out;
+}
+
+.read-more-button:hover {
+  background-color: #29b4eb; /* Button background color on hover */
+  color: #fff; /* Ensure text color remains visible */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .blog-name {
+    font-size: 55px;
+  }
+
+  .vertical-line {
+    height: 80px;
+  }
+
+  .blog-info h3 {
+    font-size: 35px;
+  }
+
+  .blog-info p {
+    font-size: 18px;
+  }
+
+  .blog-post {
+    max-width: 400px;
+  }
+
+  .read-more-button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .our-blog-section {
+    gap: 20px; /* Reduce gap on smaller screens */
+  }
+
+  .blog-name {
+    font-size: 50px;
+  }
+
+  .vertical-line {
+    height: 70px;
+  }
+
+  .blog-info h3 {
+    font-size: 30px;
+  }
+
+  .blog-info p {
+    font-size: 16px;
+  }
+
+  .blog-post {
+    max-width: 350px;
+  }
+
+  .read-more-button {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-blog-section {
+    gap: 10px; /* Reduce gap on smaller screens */
+  }
+
+  .blog-name {
+    font-size: 45px;
+  }
+
+  .vertical-line {
+    height: 60px;
+  }
+
+  .blog-info h3 {
+    font-size: 25px;
+  }
+
+  .blog-info p {
+    font-size: 14px;
+  }
+
+  .blog-post {
+    max-width: 300px;
+  }
+
+  .read-more-button {
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .our-blog-section {
+    gap: 15px; /* Reduce gap on smaller screens */
+  }
+
+  .blog-name {
+    font-size: 40px;
+  }
+
+  .vertical-line {
+    height: 50px;
+  }
+
+  .blog-info h3 {
+    font-size: 20px;
+  }
+
+  .blog-info p {
+    font-size: 12px;
+  }
+
+  .blog-post {
+    max-width: 250px;
+  }
+
+  .read-more-button {
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .our-blog-section {
+    gap: 12px; /* Reduce gap on smaller screens */
+  }
+
+  .blog-name {
+    font-size: 35px;
+  }
+
+  .vertical-line {
+    height: 40px;
+  }
+
+  .blog-info h3 {
+    font-size: 15px;
+  }
+
+  .blog-info p {
+    font-size: 10px;
+  }
+
+  .blog-post {
+    max-width: 200px;
+  }
+
+  .read-more-button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}

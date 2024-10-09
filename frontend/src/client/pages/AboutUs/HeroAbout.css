@@ -1,0 +1,168 @@
+.about-hero {
+  position: relative;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: left;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  color: #fff;
+}
+
+.hero-about-header {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero-about-header h1 {
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1.1;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+}
+
+.hero-about-header h1 .highlight {
+  color: #0592c8;
+  font-size: 4.5rem;
+  opacity: 70%;
+}
+
+.hero-about-text {
+  flex: 2;
+  padding-right: 4rem;
+}
+
+.hero-about-text p {
+  color: #fff !important;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+  .about-hero-content {
+    flex-direction: row;
+  }
+
+  .hero-about-header h1 {
+    font-size: 4rem;
+  }
+
+  .hero-about-header h1 .highlight {
+    font-size: 4.5rem;
+  }
+
+  .hero-about-text {
+    padding-left: 4rem;
+  }
+
+  .hero-about-text p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 991px) {
+  .about-hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .hero-about-header {
+    margin-bottom: 2rem;
+  }
+
+  .hero-about-header h1 {
+    font-size: 3rem;
+  }
+
+  .hero-about-header h1 .highlight {
+    font-size: 3.5rem;
+  }
+
+  .hero-about-text {
+    padding: 0 2rem;
+  }
+
+  .hero-about-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 576px) {
+  .about-hero-content {
+    text-align: left;
+    padding: 1rem;
+  }
+
+  .hero-about-header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-about-header h1 .highlight {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .hero-about-text {
+    padding: 0;
+  }
+
+  .hero-about-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-hero-content {
+    text-align: left;
+    padding: 1rem;
+  }
+  .hero-about-header h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .hero-about-header h1 .highlight {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-about-text {
+    padding: 0;
+  }
+
+  .hero-about-text p {
+    font-size: 0.9rem;
+  }
+}

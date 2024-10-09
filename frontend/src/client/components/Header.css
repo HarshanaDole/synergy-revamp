@@ -1,0 +1,185 @@
+.header-client {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: linear-gradient(to right, #023043, #0690c9);
+  color: white;
+  opacity: 0; /* Start hidden */
+  transform: translateX(-100%); /* Start off-screen to the left */
+  animation: slide-in 1s forwards; /* Trigger animation */
+  flex-direction: column; /* Stack items vertically on small screens */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between; /* Space between logo and toggle button */
+}
+
+.logo-header-client {
+  width: 100px; /* Adjust the logo size as needed */
+  transform-origin: center; /* Rotate around the center */
+  animation: rotate-logo 1s linear 0s 3; /* Rotate 3 times and then stop */
+}
+
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  gap: 1.5rem;
+  transition: display 0.3s ease;
+}
+
+.nav-links.active {
+  display: flex; /* Show when the menu is open */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+  margin: 0.5rem 0;
+  position: relative; /* Position relative for the pseudo-element */
+  display: inline-block; /* Ensure space for underline effect */
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Position below the text */
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--main-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  width: 100%; /* Full width on hover */
+}
+
+.nav-links a.active {
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-links a:hover {
+  color: black; /* Change text color on hover */
+}
+
+.quote-button {
+  background-color: white;
+  color: black;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.5s ease-in-out;
+  white-space: nowrap;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.quote-button span {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.quote-button:hover span {
+  transform: translateX(10px);
+}
+
+/* Animation keyframes */
+@keyframes slide-in {
+  to {
+    opacity: 1; /* End visible */
+    transform: translateX(0); /* End in place */
+  }
+}
+
+/* Rotate logo animation keyframes */
+@keyframes rotate-logo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 991px) {
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+/* Responsive styles */
+@media (min-width: 769px) {
+  .header-client {
+    flex-direction: row; /* Horizontal layout for larger screens */
+  }
+
+  .header-left {
+    justify-content: flex-start; /* Align logo and toggle button to the left */
+  }
+
+  .nav-links {
+    display: flex; /* Display flex on larger screens */
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+    justify-content: flex-end;
+    margin-left: auto; /* Push nav links to the right */
+  }
+
+  .nav-links a {
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .menu-toggle {
+    display: none; /* Hide menu toggle on larger screens */
+  }
+}
+
+/* Mobile-specific hover effects for navigation links */
+@media (max-width: 768px) {
+  .nav-links a:hover {
+    color: black; /* Different text color on hover */
+    font-size: 24px; /* Increase font size on hover */
+    transform: scale(1.1); /* Slightly enlarge the link */
+    transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+  }
+
+  /* Remove the underline effect for mobile devices */
+  .nav-links a::before {
+    display: none;
+  }
+
+  .logo-header-client {
+    width: 80px;
+    transform-origin: center;
+    animation: rotate-logo 1s linear 0s 3;
+  }
+}

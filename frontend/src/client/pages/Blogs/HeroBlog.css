@@ -1,0 +1,111 @@
+.blogs-hero-section {
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.blogs-hero-content {
+  display: flex;
+  flex-direction: column; /* Stack elements on smaller screens */
+  align-items: center;
+  padding: 2rem 1rem; /* Adjust padding for smaller screens */
+}
+
+.blogs-hero-text h1 {
+  font-size: 2.5rem; /* Smaller font size for smaller screens */
+  margin-bottom: 1rem; /* Adjust margin for smaller screens */
+  color: #333;
+}
+
+.highlight {
+  color: #0592c8;
+}
+
+.blog-card-hero {
+  background: #fff;
+  padding: 1rem; /* Adjust padding for smaller screens */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 1rem; /* Adjust margin for smaller screens */
+  margin-bottom: 1rem; /* Adjust margin for smaller screens */
+}
+
+.heroblog-header {
+  font-size: 1.5rem; /* Smaller font size for smaller screens */
+  margin-bottom: 1rem;
+}
+
+.blog-card-hero p {
+  margin-bottom: 1rem;
+}
+
+.read-now-button-blog {
+  background-color: #0592c8;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.read-now-button-blog:hover {
+  background-color: #014c59;
+}
+
+.horizontal-line {
+  width: 95%;
+  border: 1px solid #014c59;
+  margin: 0 auto;
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 576px) {
+  .blogs-hero-text h1 {
+    font-size: 3rem; /* Larger font size for medium screens */
+  }
+
+  .blog-card-hero {
+    padding: 1.5rem; /* Adjust padding for medium screens */
+  }
+
+  .heroblog-header {
+    font-size: 1.75rem; /* Adjust font size for medium screens */
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+  .blogs-hero-section {
+    padding: 0 2rem;
+  }
+
+  .blogs-hero-content {
+    flex-direction: row; /* Align elements side-by-side on larger screens */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .blogs-hero-text {
+    flex: 1;
+  }
+
+  .blogs-hero-text h1 {
+    font-size: 4rem;
+    padding: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-card-hero {
+    max-width: 50%; /* Set a max-width for larger screens */
+    margin-top: 0;
+  }
+
+  .heroblog-header {
+    font-size: 2rem;
+  }
+
+  .read-now-button-blog {
+    font-size: 1rem;
+  }
+}

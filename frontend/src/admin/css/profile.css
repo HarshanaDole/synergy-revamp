@@ -1,0 +1,157 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.profile-header h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-btn {
+  background: #0592c8;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logout-btn {
+  background: #014c59;
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  padding: 1rem 1.1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edit-btn:hover {
+  background: var(--aqua);
+}
+
+.logout-btn:hover {
+  background: #32a5b9;
+}
+
+.delete-btn:hover {
+  background: #fc736f;
+}
+
+.profile-form {
+  width: 100%;
+}
+
+.profile-form .input-box-profile {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 5rem;
+}
+
+.profile-form .input-box-profile label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.profile-form .input-box-profile input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #014c59;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #014c59;
+}
+
+.profile-form.editing .input-box-profile input {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.profile-form .btn {
+  background: #0592c8;
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.profile-form .btn:hover {
+  background: var(--aqua);
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-container {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .profile-container {
+    max-width: 300px;
+  }
+}

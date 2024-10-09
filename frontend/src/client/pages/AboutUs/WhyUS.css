@@ -1,0 +1,100 @@
+.why-us {
+  background-color: black;
+  color: white;
+  padding: 4rem 6rem;
+  padding-top: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 60%;
+}
+
+.why-us h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: #0592c8;
+  font-size: 4rem;
+}
+
+.why-us p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.logo-container-why {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.half-logo {
+  height:300px;
+  margin-bottom: 150px;
+  opacity: 40%;
+  transform: translateX(50%);
+}
+
+@media (max-width: 991px) {
+  .why-us {
+    padding: 2rem 4rem;
+  }
+
+  .why-us h2 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .highlight {
+    font-size: 3.2rem;
+  }
+
+  .why-us p {
+    font-size: 1rem;
+  }
+
+  .half-logo {
+    height: 250px;
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .why-us {
+    padding: 1rem 2rem;
+  }
+
+  .why-us h2 {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .highlight {
+    font-size: 2.8rem;
+  }
+
+  .why-us p {
+    font-size: 0.7rem;
+  }
+
+  .half-logo {
+    height: 200px;
+    margin-bottom: 300px;
+  }
+}

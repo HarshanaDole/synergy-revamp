@@ -1,0 +1,215 @@
+.hero {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  overflow: hidden; /* Prevent horizontal scroll */
+}
+
+.hero-slide {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  height: 100vh; /* Full viewport height */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  animation: slideInLeft 1s ease-in-out; /* Apply slide-in animation */
+}
+
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Ensure the overlay is above the background but below the content */
+}
+
+.hero-slide1 {
+  background-image: url("../../images/Hero1.png");
+}
+
+.hero-slide2 {
+  background-image: url("../../images/Hero2.png");
+}
+
+.hero-slide3 {
+  background-image: url("../../images/Hero3.png");
+}
+
+.hero-slide .content {
+  position: relative; /* Ensure content is above the overlay */
+  z-index: 2;
+  text-align: left;
+  color: #fff;
+  padding: 6rem; /* Reduced padding */
+  margin-top: 5rem;
+  border-radius: 10px;
+}
+
+.hero-slide h1 {
+  font-size: 2.8rem; /* Adjusted font size */
+  margin-bottom: 3rem;
+  color: #fff;
+  text-align: left;
+  animation: fadeInUp 1.5s ease-in-out forwards; /* Text animation */
+}
+
+.hero-slide p {
+  font-size: 1.5rem; /* Adjusted font size */
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.8s ease-in-out forwards; /* Text animation */
+}
+
+.hero-slide button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #014c59;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+  z-index: 1;
+  animation: fadeInUp 2.1s ease-in-out forwards; /* Text animation */
+}
+
+.hero-slide button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid #0592c8;
+  box-shadow: 0 0 20px #0592c8;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.hero-slide button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px #0592c8;
+  opacity: 0;
+}
+
+.hero-slide button:hover {
+  color: #0592c8;
+}
+
+.hero-slide button:hover::before {
+  opacity: 1;
+}
+
+.hero-slide button:hover::after {
+  opacity: 1;
+}
+
+/* Keyframes for sliding animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .hero-slide .content {
+    padding: 6rem;
+  }
+
+  .hero-slide h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-slide p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-slide .content {
+    padding: 4rem;
+  }
+
+  .hero-slide h1 {
+    font-size: 2rem;
+  }
+
+  .hero-slide p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slide .content {
+    padding-left: 2rem;
+    margin-top: 12rem;
+  }
+
+  .hero-slide h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-slide p {
+    font-size: 0.875rem;
+  }
+
+  .hero-slide button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    height: 70vh;
+  }
+  .hero-slide .content {
+    padding: 2rem;
+    margin-top: 12rem;
+  }
+
+  .hero-slide h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-slide p {
+    font-size: 0.9rem;
+  }
+
+  .hero-slide button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}

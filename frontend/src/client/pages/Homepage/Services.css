@@ -1,0 +1,248 @@
+.lifecycle {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-image: url("/Synergy/Web/synergy-admin/synergy-admin/frontend/src/client/images/Synergy_logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.line-service {
+  width: 25%;
+  border-top: 2px solid #0592c8;
+  margin: 2rem auto;
+}
+
+.Header-service {
+  font-size: 40px;
+  text-align: center;
+}
+
+.circle {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 0;
+  padding-bottom: 100%; /* Maintain aspect ratio */
+  border-radius: 100%;
+  margin-bottom: 0;
+}
+
+.service {
+  position: absolute;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.service.active {
+  opacity: 1;
+}
+
+.service img {
+  width: 80px;
+  height: auto;
+  margin-right: 1rem;
+  z-index: 2;
+}
+
+.service-content {
+  position: relative;
+}
+
+.service h3 {
+  color: #0592c8;
+  margin-bottom: 0.5rem;
+  font-size: 40px;
+  opacity: 70%;
+  position: relative;
+  z-index: 1;
+}
+
+.service h3::first-letter {
+  color: black;
+  font-size: 55px;
+  position: relative;
+  margin-left: -20px;
+  z-index: -1;
+}
+
+.service p {
+  color: #333;
+  font-size: 18px;
+  text-align: left;
+}
+
+.consulting {
+  top: 20%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.designing {
+  top: 52%;
+  right: 15%;
+  transform: translate(50%, -50%);
+}
+
+.contracting {
+  bottom: 30%;
+  left: 15%;
+  transform: translate(-50%, 50%);
+}
+
+.line1 {
+  align-items: center;
+  width: 5%;
+  border-top: 2px solid #0592c8;
+}
+
+.final-text {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 25px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .circle {
+    width: 80%;
+    padding-bottom: 80%; /* Maintain aspect ratio */
+  }
+
+  .Header-service {
+    margin-bottom: 1rem;
+  }
+
+  .service {
+    width: 150px;
+  }
+
+  .service img {
+    width: 60px;
+  }
+
+  .service h3 {
+    font-size: 25px;
+  }
+
+  .service p {
+    font-size: 13px;
+  }
+
+  .consulting {
+    top: 25%;
+  }
+
+  .designing {
+    top: 65%;
+    right: 20%;
+  }
+
+  .contracting {
+    bottom: 25%;
+    left: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .circle {
+    padding-bottom: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .service {
+    width: 290px;
+  }
+
+  .service img {
+    width: 50px;
+  }
+
+  .service h3 {
+    font-size: 20px;
+  }
+
+  .service h3::first-letter {
+    font-size: 35px;
+  }
+
+  .service p {
+    font-size: 12px;
+  }
+
+  .consulting {
+    top: 20%;
+    left: 45%;
+  }
+
+  .designing {
+    top: 55%;
+    right: 25%;
+  }
+
+  .contracting {
+    bottom: 20%;
+    left: 25%;
+  }
+}
+
+@media (max-width: 576px) {
+  .service {
+    width: 300px;
+  }
+
+  .Header-service {
+    font-size: 25px;
+    margin-bottom: 0;
+  }
+
+  .service h3::first-letter {
+    color: black;
+    font-size: 30px;
+    position: relative;
+    margin-left: -20px;
+    z-index: -1;
+  }
+
+  .service h3 {
+    font-size: 15px;
+  }
+
+  .service p {
+    font-size: 12px;
+  }
+
+  .consulting {
+    top: 30%;
+    left: 45%;
+  }
+
+  .designing {
+    top: 135%;
+    right: 55%;
+  }
+
+  .contracting {
+    bottom: 15%;
+    left: 45%;
+  }
+
+  .line1 {
+    margin-top: 18rem;
+    width: 50px;
+  }
+}

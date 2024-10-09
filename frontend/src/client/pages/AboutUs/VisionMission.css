@@ -1,0 +1,163 @@
+/* General styling */
+.vision-mission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.vision-mission-content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+}
+
+.vision,
+.mission {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.image-container {
+  margin-bottom: 1rem;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Add this specific styling for the mission image */
+.mission .image-container img {
+  margin-top: 4rem;
+  width: 70%;
+  height: auto;
+}
+.mission .text-container p {
+  margin-top: 5rem;
+}
+.vision .text-container p {
+  margin-top: 3rem;
+}
+
+.text-container {
+  text-align: left;
+  padding: 20px;
+}
+
+.text-container h2 {
+  font-size: 45px;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.text-container h2 .highlight {
+  color: #0592c8;
+  font-size: 55px;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.divider-about {
+  height: 400vh; /* Change this value */
+  width: 2px;
+  background-color: #014c59;
+  margin: 0 2rem;
+  align-self: center;
+}
+
+.footer-content-vimi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line-story {
+  width: 50px;
+  border-top: 2px solid #0592c8;
+  margin-bottom: 1rem;
+}
+
+.final-text-story {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 25px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Responsive styling */
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+  .vision-mission-content {
+    flex-direction: row;
+  }
+
+  .divider-about {
+    height: 80vh; /* Change this value for large screens */
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 991px) {
+  .vision-mission-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divider-about {
+    display: none; /* Hide divider on medium screens */
+  }
+
+  .text-container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .text-container h2 {
+    font-size: 35px;
+  }
+
+  .text-container h2 .highlight {
+    font-size: 45px;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 576px) {
+  .vision-mission-content {
+    padding: 1rem;
+  }
+
+  .text-container h2 {
+    font-size: 30px;
+  }
+
+  .text-container h2 .highlight {
+    font-size: 40px;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+
+  .final-text-story {
+    font-size: 1.3rem;
+  }
+}

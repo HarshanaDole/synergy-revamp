@@ -1,0 +1,261 @@
+/* Base styles */
+.global-presence-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.header-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+.header-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.global-presence-overlay {
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.global-presence-overlay h2 {
+  font-size: 3rem;
+  opacity: 70%;
+}
+
+.header-2 {
+  font-size: 4rem;
+}
+
+.description {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.world-map {
+  width: 100%;
+  height: auto;
+}
+
+.map-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.marker {
+  position: absolute;
+  color: #ffffff; /* White text color */
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow */
+}
+
+.location {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.location .react-icons {
+  font-size: 3.5rem;
+}
+
+.last-global {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.line-global {
+  width: 15%;
+  border-top: 2px solid #0592c8;
+  margin: 5rem auto 1rem;
+}
+
+.final-text-global {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 25px;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .global-presence-overlay h2 {
+    font-size: 2.5rem;
+  }
+
+  .header-2 {
+    font-size: 3.5rem;
+  }
+
+  .description {
+    font-size: 1.3rem;
+  }
+
+  .marker {
+    font-size: 1.3rem;
+  }
+
+  .location .react-icons {
+    font-size: 3rem;
+  }
+
+  .final-text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 992px) {
+  .global-presence-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .header-2 {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+
+  .marker {
+    font-size: 1.2rem;
+  }
+
+  .location .react-icons {
+    font-size: 2.5rem;
+  }
+
+  .final-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .global-presence-overlay h2 {
+    font-size: 1.8rem;
+  }
+
+  .header-2 {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .marker {
+    font-size: 1rem;
+  }
+
+  .location .react-icons {
+    font-size: 2rem;
+  }
+
+  .final-text-global {
+    font-size: 20px;
+  }
+
+  .global-presence-overlay {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-container::before {
+    height: 500px;
+  }
+
+  .global-presence-overlay h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-2 {
+    font-size: 1.5rem;
+  }
+
+  .marker {
+    font-size: 0.9rem;
+  }
+
+  .location .react-icons {
+    font-size: 1.5rem;
+  }
+
+  .final-text-global {
+    font-size: 18px;
+  }
+
+  .global-presence-overlay {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    flex-direction: column;
+  }
+}

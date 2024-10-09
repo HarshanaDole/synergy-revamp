@@ -1,0 +1,342 @@
+/* Apply box-sizing to all elements for better control over sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base styles */
+.offer-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+  padding-right: 4rem;
+  padding-left: 4rem;
+}
+
+.offer-header {
+  padding-left: 2rem;
+  font-size: 2.5rem;
+  text-align: left;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: flex-start; /* Align items to the left */
+}
+
+.offer-header::before {
+  content: "";
+  display: flex;
+  flex-direction: column;
+  width: 5px; /* Vertical line */
+  height: 100%;
+  background-color: #0592c8;
+  position: absolute;
+  top: 0;
+}
+
+.offer-header .what-word {
+  padding-left: 1rem;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 1rem; /* Space between "WHAT" and the rest of the header */
+}
+
+.offer-header .we-offer {
+  display: flex;
+  align-items: flex-start; /* Align items to the left */
+}
+
+.offer-header .vertical-we {
+  writing-mode: vertical-rl; /* Make the "WE" vertical */
+  transform: rotate(
+    180deg
+  ); /* Rotate to make the text readable from bottom to top */
+  margin-right: 1rem; /* Space between "WE" and "OFFER" */
+  margin-top: -12px;
+}
+
+.offer-header .horizontal-offer {
+  color: #0592c8;
+  margin-top: -25px;
+  display: inline-block;
+  font-size: 60px;
+  margin-left: -10px;
+}
+
+.offer-cards {
+  display: flex;
+  justify-content: space-between; /* Ensure no gaps between cards */
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 2rem; /* Adjust as needed for smaller screens */
+  padding-right: 2rem; /* Adjust as needed for smaller screens */
+  margin: 0 auto;
+  margin-top: 2rem; /* Adjust spacing as needed */
+}
+
+.offer-card1,
+.offer-card2,
+.offer-card3,
+.offer-card4 {
+  position: relative;
+  width: 25%; /* Cards take up 25% of the width for base screen size */
+  text-align: left;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem; /* Space between cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offer-card1::before,
+.offer-card2::before,
+.offer-card3::before,
+.offer-card4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1; /* Ensure this is above the background image but below the content */
+}
+
+.offer-card1 .offer-content,
+.offer-card2 .offer-content,
+.offer-card3 .offer-content,
+.offer-card4 .offer-content {
+  position: relative;
+  z-index: 2; /* Ensure the content is above the overlay */
+  padding: 2rem;
+  color: #fff; /* Ensure the text is visible on the dark background */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offer-card1 h3,
+.offer-card2 h3,
+.offer-card3 h3,
+.offer-card4 h3 {
+  font-size: 2rem; /* Font size for base screen size */
+  color: #fff;
+}
+
+.offer-card1 p,
+.offer-card2 p,
+.offer-card3 p,
+.offer-card4 p {
+  font-size: 0.9rem; /* Font size for base screen size */
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
+}
+
+.offer-card1 button,
+.offer-card2 button,
+.offer-card3 button,
+.offer-card4 button {
+  margin-top: 2rem;
+  padding: 0.9rem 2rem; /* Padding for base screen size */
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid #014c59;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  align-self: flex-start; /* Align buttons to the left */
+  position: relative;
+}
+
+.offer-card1 button:hover,
+.offer-card2 button:hover,
+.offer-card3 button:hover,
+.offer-card4 button:hover {
+  border-color: #0592c8; /* Change border color on hover */
+  color: #0592c8; /* Change text color on hover */
+  box-shadow: 0 0 10px #0592c8; /* Add blue glow effect */
+}
+
+.final-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem; /* Margin for base screen size */
+}
+
+.line-offer {
+  width: 50px; /* Adjust width as needed */
+  border-top: 2px solid #0592c8; /* Adjust color and thickness as needed */
+  margin-bottom: 1rem;
+}
+
+.final-text-offer {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 25px; /* Font size for base screen size */
+  margin-bottom: 2rem; /* Space between header and circle */
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* New CSS for aligning buttons in a row */
+.button-container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  flex-grow: 1;
+  margin-top: auto;
+  gap: 1rem; /* Adjust gap between buttons as needed */
+}
+
+/* Media Queries for Responsive Design */
+
+@media only screen and (max-width: 1200px) {
+  .offer-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem; /* Add some padding to position the content away from the left edge */
+  }
+  .offer-card1,
+  .offer-card2,
+  .offer-card3,
+  .offer-card4 {
+    width: 45%; /* Adjust card width for medium screens */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .offer-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .offer-card1,
+  .offer-card2,
+  .offer-card3,
+  .offer-card4 {
+    width: 45%; /* Adjust card width for small screens */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .offer-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .offer-card1,
+  .offer-card2,
+  .offer-card3,
+  .offer-card4 {
+    width: 100%; /* Cards take full width on extra small screens */
+  }
+
+  .offer-header {
+    padding-left: 2rem; /* Adjust padding for smaller screens */
+  }
+
+  .final-container {
+    margin-top: 5rem; /* Adjust margin for smaller screens */
+  }
+
+  .final-text-offer {
+    font-size: 20px; /* Font size for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .offer-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .offer-header {
+    padding-left: 2rem; /* Adjust padding for smaller screens */
+  }
+
+  .offer-cards {
+    padding: 0 1rem;
+  }
+
+  .offer-card1,
+  .offer-card2,
+  .offer-card3,
+  .offer-card4 {
+    width: 100%; /* Cards take full width on extra small screens */
+    gap: 0;
+  }
+
+  .offer-header .we-offer {
+    flex-direction: row; /* Change direction to row on smaller screens */
+    align-items: center; /* Align items to the center */
+  }
+
+  .offer-header .vertical-we {
+    writing-mode: vertical-rl; /* Make the "WE" vertical */
+    transform: rotate(
+      180deg
+    ); /* Rotate to make the text readable from bottom to top */
+    margin-right: 0; /* Space between "WE" and "OFFER" */
+    margin-top: -12px;
+  }
+
+  .offer-header .horizontal-offer {
+    font-size: 40px; /* Reduce font size for smaller screens */
+    margin-left: 0; /* Remove margin */
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .offer-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4rem;
+  }
+  .offer-header {
+    padding-left: 2rem; /* Adjust padding for smaller screens */
+  }
+
+  .offer-card1,
+  .offer-card2,
+  .offer-card3,
+  .offer-card4 {
+    width: 100%; /* Cards take full width on extra small screens */
+  }
+
+  .offer-header .what-word {
+    font-size: 25px; /* Font size for extra small screens */
+    padding-left: 0.5rem;
+  }
+
+  .offer-header .horizontal-offer {
+    font-size: 30px; /* Font size for extra small screens */
+  }
+
+  .final-container {
+    margin-top: 3rem; /* Adjust margin for extra small screens */
+  }
+
+  .final-text-offer {
+    font-size: 20px;
+  }
+}

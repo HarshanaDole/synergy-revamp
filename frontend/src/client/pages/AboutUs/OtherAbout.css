@@ -1,0 +1,113 @@
+.certificates-section {
+  padding: 4rem 10rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.certificates-section h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.certificates-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.certificate {
+  max-width: 45%;
+  text-align: center;
+  margin-bottom: 2rem; /* Space between certificates on smaller screens */
+}
+
+.certificate img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #0592c8; /* Optional: Add border to the images */
+  border-radius: 8px; /* Optional: Add rounded corners to the images */
+  margin-bottom: 1rem;
+}
+
+.certificate p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.line-other {
+  width: 10%; /* Adjust width as needed */
+  border-top: 2px solid #0592c8; /* Adjust color and thickness as needed */
+  margin: 0 auto 1rem auto; /* Center the line by setting left and right margins to auto */
+}
+
+.final-text-other {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 25px; /* Adjust size as needed */
+  margin-bottom: 2rem; /* Space between header and circle */
+  text-align: center;
+}
+
+/* Responsive styling */
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+  .certificates-container {
+    flex-direction: row;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 991px) {
+  .certificates-section {
+    padding: 4rem 2rem;
+  }
+
+  .certificates-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .certificate {
+    max-width: 80%;
+  }
+
+  .certificate p {
+    font-size: 1.5rem;
+  }
+
+  .line-other {
+    width: 20%;
+  }
+
+  .final-text-other {
+    font-size: 20px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 576px) {
+  .certificates-section {
+    margin-top: 4rem;
+    padding: 2rem 1rem;
+  }
+
+  .certificate {
+    max-width: 100%;
+  }
+
+  .certificate p {
+    font-size: 1.2rem;
+  }
+
+  .line-other {
+    width: 15%;
+  }
+
+  .final-text-other {
+    font-size: 18px;
+  }
+}

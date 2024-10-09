@@ -1,0 +1,74 @@
+.uploader-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploader-container .uploader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed var(--main-color);
+  height: 15rem;
+  width: 20rem;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.uploader-container .uploader.uploader-error {
+  border: 2px dashed var(--red);
+}
+
+.uploader-container .uploader .uploaded-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.image-icon {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.required {
+  color: var(--red);
+}
+
+.uploaded-row {
+  background-color: #e9f0ff;
+  width: 20rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uploaded-row .uploaded-content {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.uploaded-row .uploaded-content .uploaded-filename {
+  max-width: 15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.uploaded-row .delete-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.image-error-message {
+  color: var(--red);
+  font-size: 0.875rem;
+  text-align: end;
+}

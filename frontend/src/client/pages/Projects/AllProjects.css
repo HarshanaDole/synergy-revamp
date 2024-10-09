@@ -1,0 +1,88 @@
+.all-projects {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.allproj-head {
+  padding: 0 1rem;
+  font-size: 4rem;
+  text-align: left;
+  color: #333;
+}
+
+.highlight-projects {
+  color: #0592c8;
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  align-items: stretch;
+}
+
+.project-card {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  height: 400px;
+  color: white;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.project-content {
+  position: relative;
+  z-index: 2;
+}
+
+.project-card h3 {
+  margin-bottom: 1rem;
+  color: #0592c8;
+}
+
+.project-card p {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.pagination {
+  margin-top: 2rem;
+}
+
+.page-number {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0592c8;
+  border-radius: 4px;
+  color: #0690c9;
+}
+
+.page-number.active {
+  background: #0690c9;
+  color: #fff;
+}
+
+.page-number:hover {
+  background: #0690c9;
+  color: #fff;
+}
