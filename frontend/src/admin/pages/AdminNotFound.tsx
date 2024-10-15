@@ -6,7 +6,7 @@ const AdminNotFound: React.FC = () => {
   return (
     <div className="error-container">
       <div className="top-right-logo">
-        <img src="/img/synergy-logo-white_back.png" alt="Logo" />
+        <img src="/img/synergy-logo-white_back.webp" alt="Logo" />
       </div>
       <div className="error-content">
         <h1>404</h1>

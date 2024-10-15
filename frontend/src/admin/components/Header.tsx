@@ -56,13 +56,13 @@ const Header = () => {
     setIsActive(!isActive);
   };
 
-  const handleScroll = () => {
-    if (isActive) {
-      setIsActive(false);
-    }
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      if (isActive) {
+        setIsActive(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -85,12 +85,12 @@ const Header = () => {
         <NavLink to="/admin">
           <div className="logo-container">
             <div className="img-container">
-              <img src="/img/synergy_admin_dark.png" alt="synergy-logo" />
+              <img src="/img/synergy_admin_dark.webp" alt="synergy-logo" />
             </div>
             <div className="header-title">
               <div className="logo-text-container">
                 <img
-                  src="/img/synergy_admin_text.png"
+                  src="/img/synergy_admin_text.webp"
                   alt="synergy-text"
                   className="logo-text"
                 />

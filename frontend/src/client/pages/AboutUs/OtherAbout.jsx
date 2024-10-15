@@ -1,8 +1,6 @@
 import React from "react";
 import "./OtherAbout.css";
 import AnimatedSection from "../../components/AnimatedSection";
-import certificate1 from "../../images/ictad-cert.png";
-import certificate2 from "../../images/iso-cert.png";
 
 const CertificatesSection = () => {
   return (
@@ -10,18 +8,22 @@ const CertificatesSection = () => {
       <div className="certificates-container">
         <div className="certificate">
           <AnimatedSection animationType="slideInFromTop">
-          <p>CIDA Certification</p>
+            <p>CIDA Certification</p>
           </AnimatedSection>
           <AnimatedSection animationType="zoomIn" delay={500}>
-            <img src={certificate1} alt="Certificate 1" />
+            <img
+              src="/img/ictad-cert.webp"
+              alt="Certificate 1"
+              loading="lazy"
+            />
           </AnimatedSection>
         </div>
         <div className="certificate">
           <AnimatedSection animationType="slideInFromTop" delay={1000}>
-          <p>ISO Certification</p>
+            <p>ISO Certification</p>
           </AnimatedSection>
           <AnimatedSection animationType="zoomIn" delay={1500}>
-            <img src={certificate2} alt="Certificate 2" />
+            <img src="/img/iso-cert.webp" alt="Certificate 2" loading="lazy" />
           </AnimatedSection>
         </div>
       </div>

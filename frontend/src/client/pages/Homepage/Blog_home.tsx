@@ -61,6 +61,7 @@ const OurBlog = () => {
               <img
                 src={formatImageUrl(latestBlog.imageUrl)}
                 alt={latestBlog.headline}
+                loading="lazy"
               />
             </div>
             <div className="blog-info">

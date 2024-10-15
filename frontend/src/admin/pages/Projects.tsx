@@ -1,6 +1,5 @@
 import "../css/main.css";
 import "../css/table.css";
-import Header from "../components/Header";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Project as ProjectModel } from "../models/project";
 import { HiDotsVertical } from "react-icons/hi";
@@ -130,6 +129,7 @@ function Projects() {
               src={formatImageUrl(project.imageUrl)}
               alt={project.imageUrl || "image"}
               className="image"
+              loading="lazy"
             />
           </td>
           <td>{project.type}</td>
@@ -168,51 +168,48 @@ function Projects() {
   );
 
   return (
-    <div>
-      <Header />
-      <section id="section">
-        <div className="flex">
-          <SearchBar
-            query={query}
-            onSearchChange={handleSearchChange}
-            placeholder="Search for Client..."
-          />
-          <SmallButton to="/admin/projects/add" />
-        </div>
+    <section id="section">
+      <div className="flex">
+        <SearchBar
+          query={query}
+          onSearchChange={handleSearchChange}
+          placeholder="Search for Client..."
+        />
+        <SmallButton to="/admin/projects/add" />
+      </div>
 
-        {projectsLoading && <Spinner fullPage color="var(--main-color)" />}
-        {showProjectsLoadingError && (
-          <p style={{ textAlign: "center" }}>
-            Something went wrong. Please refresh the page.
-          </p>
-        )}
-        {!projectsLoading && !showProjectsLoadingError && (
-          <table className="tbl">
-            <thead>
+      {projectsLoading && <Spinner fullPage color="var(--main-color)" />}
+      {showProjectsLoadingError && (
+        <p style={{ textAlign: "center" }}>
+          Something went wrong. Please refresh the page.
+        </p>
+      )}
+      {!projectsLoading && !showProjectsLoadingError && (
+        <table className="tbl">
+          <thead>
+            <tr>
+              <th></th>
+              <th className="hd-image">Image</th>
+              <th>Type</th>
+              <th>Client</th>
+              <th className="hd-location">Location</th>
+              <th className="hd-year">Year</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects.length > 0 ? (
+              projectsTable
+            ) : (
               <tr>
-                <th></th>
-                <th className="hd-image">Image</th>
-                <th>Type</th>
-                <th>Client</th>
-                <th className="hd-location">Location</th>
-                <th className="hd-year">Year</th>
-                <th></th>
+                <td colSpan={7} style={{ textAlign: "center" }}>
+                  You don't have any projects yet.
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {projects.length > 0 ? (
-                projectsTable
-              ) : (
-                <tr>
-                  <td colSpan={7} style={{ textAlign: "center" }}>
-                    You don't have any projects yet.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        )}
-      </section>
+            )}
+          </tbody>
+        </table>
+      )}
       {showPopup && (
         <ActionPopup
           message={popupMessage}
@@ -229,7 +226,7 @@ function Projects() {
           type="warning"
         />
       )}
-    </div>
+    </section>
   );
 }
 

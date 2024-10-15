@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AnimatedSection from "../../components/AnimatedSection";
 import "./ContactusSection.css";
-import contactImage from "../../images/Contact-home.png";
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -40,7 +39,12 @@ const ContactUs = () => {
     <section className="contact-us-home-section" id="contact-us">
       <div className="contact-us-left">
         <AnimatedSection animationType="slideInFromLeft">
-          <img src={contactImage} alt="Contact Us" className="contact-image" />
+          <img
+            src="/img/Contact-home.webp"
+            alt="Contact Us"
+            className="contact-image"
+            loading="lazy"
+          />
           <div className="contact-info">
             <div className="contact-item">
               <FaPhone size={34} />

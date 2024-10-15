@@ -37,7 +37,6 @@
   top: 0;
   bottom: 0;
   width: 600px;
-  height: 600px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -45,8 +44,7 @@
 }
 
 .half-logo {
-  height:300px;
-  margin-bottom: 150px;
+  height: 300px;
   opacity: 40%;
   transform: translateX(50%);
 }
@@ -71,7 +69,6 @@
 
   .half-logo {
     height: 250px;
-    margin-bottom: 100px;
   }
 }
 
@@ -95,6 +92,5 @@
 
   .half-logo {
     height: 200px;
-    margin-bottom: 300px;
   }
 }

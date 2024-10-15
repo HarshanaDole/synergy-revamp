@@ -1,5 +1,6 @@
 .tbl {
   width: 100%;
+  min-width: 100%;
   border-spacing: 0;
 }
 
@@ -36,6 +37,31 @@ tr:last-child td:last-child {
 
 .hd-name {
   width: 35%;
+}
+
+.hd-fname,
+.hd-lname {
+  width: 10%;
+}
+
+.hd-email {
+  width: 15%;
+}
+
+.hd-subject {
+  width: 20%;
+}
+
+.hd-message {
+  width: 35%;
+}
+
+.hd-recieved {
+  width: 10%;
+}
+
+.hd-action {
+  width: 5%;
 }
 
 .tbl td {

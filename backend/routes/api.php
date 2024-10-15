@@ -51,6 +51,8 @@ Route::prefix('auth')->group(function () {
 //     });
 // });
 
+
+// Temp Unprotected routes
 Route::prefix('clients')->group(function () {
     Route::post('/', [ClientController::class, 'store']);
     Route::post('/{id}', [ClientController::class, 'update']);

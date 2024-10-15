@@ -7,9 +7,20 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-image: url("/Synergy/Web/synergy-admin/synergy-admin/frontend/src/client/images/Synergy_logo.png");
+  background-image: url("/img/Synergy_logo.webp");
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.cycle-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  opacity: 0.3;
 }
 
 .line-service {
@@ -27,7 +38,6 @@
   position: relative;
   width: 100%;
   max-width: 1000px;
-  height: 0;
   padding-bottom: 100%; /* Maintain aspect ratio */
   border-radius: 100%;
   margin-bottom: 0;
@@ -98,6 +108,14 @@
   transform: translate(-50%, 50%);
 }
 
+.final-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
 .line1 {
   align-items: center;
   width: 5%;
@@ -112,10 +130,22 @@
   font-size: 25px;
   margin-bottom: 2rem;
   text-align: center;
+  padding: 0 1rem;
+}
+
+@media (max-width: 1200px) {
+  .circle {
+    width: 80%;
+    padding-bottom: 80%;
+  }
 }
 
 /* Responsive styles */
 @media (max-width: 1024px) {
+  .lifecycle {
+    background-image: unset;
+  }
+
   .circle {
     width: 80%;
     padding-bottom: 80%; /* Maintain aspect ratio */
@@ -198,51 +228,78 @@
     bottom: 20%;
     left: 25%;
   }
+
+  .final-text-container {
+    margin-top: 1rem;
+  }
+
+  .final-text {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 576px) {
-  .service {
-    width: 300px;
+  /* Stack the services vertically with a gap */
+  .circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem; /* 2rem gap between the services */
+    margin-bottom: 2rem;
+    padding-bottom: 0;
   }
 
+  /* Reset all positioning styles */
+  .service {
+    position: relative;
+    width: 100%; /* Take full width */
+    max-width: 300px; /* Limit max width */
+    left: auto;
+    top: auto;
+    right: auto;
+    transform: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .service.active {
+    opacity: 1;
+  }
+
+  /* Adjust heading and text sizes */
   .Header-service {
     font-size: 25px;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
   }
 
-  .service h3::first-letter {
-    color: black;
-    font-size: 30px;
-    position: relative;
-    margin-left: -20px;
-    z-index: -1;
+  .service img {
+    width: 50px;
   }
 
   .service h3 {
     font-size: 15px;
   }
 
+  .service h3::first-letter {
+    font-size: 30px;
+    margin-left: 0; /* Reset the negative margin */
+  }
+
   .service p {
     font-size: 12px;
   }
 
-  .consulting {
-    top: 30%;
-    left: 45%;
-  }
-
-  .designing {
-    top: 135%;
-    right: 55%;
-  }
-
-  .contracting {
-    bottom: 15%;
-    left: 45%;
-  }
-
   .line1 {
-    margin-top: 18rem;
+    margin-top: 2rem;
     width: 50px;
+  }
+
+  .final-text-container {
+    margin-top: 0;
+  }
+
+  .final-text {
+    font-size: 18px;
   }
 }

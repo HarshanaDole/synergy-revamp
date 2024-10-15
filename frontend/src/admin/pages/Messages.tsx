@@ -1,6 +1,5 @@
 import "../css/main.css";
 import "../css/table.css";
-import Header from "../components/Header";
 import Search from "../components/Search";
 import { ChangeEvent, useEffect, useState } from "react";
 import * as ContactsApi from "../../network/contacts_api";
@@ -107,104 +106,90 @@ function Messages() {
   );
 
   return (
-    <div>
-      <Header />
-      <section id="section">
-        <div className="flex">
-          <Search
-            query={query}
-            onSearchChange={handleSearchChange}
-            placeholder="Search Keyword..."
-          />
-        </div>
+    <section id="section">
+      <div className="flex">
+        <Search
+          query={query}
+          onSearchChange={handleSearchChange}
+          placeholder="Search Keyword..."
+        />
+      </div>
 
-        {Loading && <Spinner fullPage color="var(--main-color)" />}
-        {showLoadingError && (
-          <p style={{ textAlign: "center" }}>
-            Something went wrong. Please refresh the page.
-          </p>
-        )}
+      {Loading && <Spinner fullPage color="var(--main-color)" />}
+      {showLoadingError && (
+        <p style={{ textAlign: "center" }}>
+          Something went wrong. Please refresh the page.
+        </p>
+      )}
 
-        {!Loading && !showLoadingError && (
-          <table
-            className="tbl"
-            style={{ width: "100%", tableLayout: "fixed" }}
-          >
-            <thead>
-              <tr>
-                <th className="hd-fname" style={{ width: "10%" }}>
-                  First Name
-                </th>
-                <th className="hd-lname" style={{ width: "10%" }}>
-                  Last Name
-                </th>
-                <th className="hd-email" style={{ width: "15%" }}>
-                  Email
-                </th>
-                <th style={{ width: "20%" }}>Subject</th>
-                <th className="hd-message" style={{ width: "35%" }}>
-                  Message
-                </th>
-                <th style={{ width: "10%" }}>Received</th>
-                <th style={{ width: "5%" }}></th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredContacts.length > 0 ? (
-                filteredContacts.map((contact) => (
-                  <tr key={contact.id} className="contact-trow">
-                    <td className="fname-column">{contact.first_name}</td>
-                    <td className="lname-column">{contact.last_name}</td>
-                    <td className="email-column">{contact.email}</td>
-                    <td className="subject-column">{contact.subject}</td>
-                    <td className="message-column">{contact.message}</td>
-                    <td>
-                      {new Date(contact.created_at).toLocaleDateString("en-GB")}{" "}
-                      {new Date(contact.created_at).toLocaleTimeString(
-                        "en-GB",
-                        { hour: "2-digit", minute: "2-digit" }
-                      )}
-                    </td>
+      {!Loading && !showLoadingError && (
+        <table className="tbl">
+          <thead>
+            <tr>
+              <th className="hd-fname">First Name</th>
+              <th className="hd-lname">Last Name</th>
+              <th className="hd-email">Email</th>
+              <th className="hd-subject">Subject</th>
+              <th className="hd-message">Message</th>
+              <th className="hd-recieved">Received</th>
+              <th className="hd-action"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredContacts.length > 0 ? (
+              filteredContacts.map((contact) => (
+                <tr key={contact.id} className="contact-trow">
+                  <td className="fname-column">{contact.first_name}</td>
+                  <td className="lname-column">{contact.last_name}</td>
+                  <td className="email-column">{contact.email}</td>
+                  <td className="subject-column">{contact.subject}</td>
+                  <td className="message-column">{contact.message}</td>
+                  <td>
+                    {new Date(contact.created_at).toLocaleDateString("en-GB")}{" "}
+                    {new Date(contact.created_at).toLocaleTimeString("en-GB", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </td>
 
-                    <td id="menu-container">
-                      {activeContactId === contact.id && (
-                        <div className="popup-menu">
-                          <button
-                            className="popup-btn"
-                            onClick={() => handleEditClick(contact)}
-                          >
-                            View
-                          </button>
-                          <button
-                            className="popup-btn"
-                            onClick={() => handleDeleteClick(contact)}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      )}
-                      <button
-                        className="menu-icon"
-                        onClick={() => {
-                          togglePopup(contact.id);
-                        }}
-                      >
-                        <HiDotsVertical />
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={6} style={{ textAlign: "center" }}>
-                    No contacts found.
+                  <td id="menu-container">
+                    {activeContactId === contact.id && (
+                      <div className="popup-menu">
+                        <button
+                          className="popup-btn"
+                          onClick={() => handleEditClick(contact)}
+                        >
+                          View
+                        </button>
+                        <button
+                          className="popup-btn"
+                          onClick={() => handleDeleteClick(contact)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )}
+                    <button
+                      className="menu-icon"
+                      onClick={() => {
+                        togglePopup(contact.id);
+                      }}
+                    >
+                      <HiDotsVertical />
+                    </button>
                   </td>
                 </tr>
-              )}
-            </tbody>
-          </table>
-        )}
-      </section>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={7} style={{ textAlign: "center" }}>
+                  No contacts found.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      )}
       {showPopup && (
         <ActionPopup
           message={popupMessage}
@@ -221,7 +206,7 @@ function Messages() {
           type="warning"
         />
       )}
-    </div>
+    </section>
   );
 }
 

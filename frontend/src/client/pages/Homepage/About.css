@@ -11,16 +11,19 @@
   display: flex;
   align-items: center;
   max-width: 1200px;
+  height: auto;
   width: 100%;
   flex-direction: column; /* Default to column layout for smaller screens */
+  background-color: azure;
+  border-radius: 35px;
 }
 
 .about-image {
-  flex: 1; /* Increase the flex value to expand the image */
-  padding-left: 0rem;
-  padding-right: 2rem;
+  flex: 1;
   margin-bottom: 2rem; /* Add margin to separate image and text on smaller screens */
   text-align: center; /* Center align the image for smaller screens */
+  height: 100%;
+  width: 100%;
 }
 
 .about-image img {
@@ -33,8 +36,8 @@
 .about-text {
   flex: 1;
   text-align: left;
-  padding-right: 4rem;
   width: 100%;
+  padding: 1rem;
 }
 
 .about-text h2 {
@@ -82,58 +85,48 @@
 /* Responsive styles */
 @media (min-width: 768px) {
   .about-content {
-      flex-direction: row; /* Row layout for larger screens */
+    flex-direction: row; /* Row layout for larger screens */
   }
-
-  .about-text {
-      padding: 1rem; /* Adjust padding for larger screens */
-  }
-
-  .about-text {
-      padding-right: 4rem;
-  }
-
 }
 
 @media (max-width: 768px) {
   .about {
-      padding: 1rem; /* Adjust padding for smaller screens */
+    padding: 1rem; /* Adjust padding for smaller screens */
   }
 
   .about-content {
-      flex-direction: column; /* Column layout for smaller screens */
+    flex-direction: column; /* Column layout for smaller screens */
   }
 
   .about-image {
-      padding: 0; /* Remove padding for smaller screens */
-      text-align: center; /* Center align the image for smaller screens */
+    padding: 0; /* Remove padding for smaller screens */
+    text-align: center; /* Center align the image for smaller screens */
   }
 
   .about-image img {
-      width: 70%; /* Make image full width on smaller screens */
-      height: auto; /* Maintain aspect ratio */
+    width: 70%; /* Make image full width on smaller screens */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .about-text {
-      margin-top: -10rem;
-      padding: 0; /* Remove padding for smaller screens */
-      text-align: center; /* Center align text for smaller screens */
+    text-align: center; /* Center align text for smaller screens */
   }
 
   .about-text h2 {
-      font-size: 2rem; /* Adjust font size for smaller screens */
+    font-size: 2rem; /* Adjust font size for smaller screens */
   }
 
-  .about-text .first, .about-text .subtitle {
-      font-size: 3rem; /* Adjust font size for smaller screens */
+  .about-text .first,
+  .about-text .subtitle {
+    font-size: 3rem; /* Adjust font size for smaller screens */
   }
 
   .about-text p {
-      font-size: 1rem; /* Adjust font size for smaller screens */
+    font-size: 1rem; /* Adjust font size for smaller screens */
   }
 
   .about-text .readmore-btn {
-      font-size: 0.875rem; /* Adjust font size for button */
-      padding: 0.75rem 1.5rem; /* Adjust padding for button */
+    font-size: 0.875rem; /* Adjust font size for button */
+    padding: 0.75rem 1.5rem; /* Adjust padding for button */
   }
 }

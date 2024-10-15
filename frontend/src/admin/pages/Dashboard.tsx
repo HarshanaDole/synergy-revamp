@@ -1,6 +1,5 @@
 import "../css/main.css";
 import "../css/dashboard.css";
-import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { Project } from "../models/project";
 import { Client } from "../models/client";
@@ -121,7 +120,6 @@ function Dashboard() {
 
   return (
     <>
-      <Header />
       {loading && <Spinner fullPage color="var(--main-color)" />}
       {showLoadingError && (
         <ActionPopup

@@ -8,14 +8,18 @@ import {
 } from "react-icons/fa";
 import AnimatedSection from "./AnimatedSection";
 import "./Footer.css";
-import logo from "../images/synergy-engineering-logo.png";
 
 const Footer = () => {
   return (
     <AnimatedSection animationType="slideInFromLeft">
       <footer className="footer">
         <div className="footer-top">
-          <img src={logo} alt="Company Logo" className="footer-logo" />
+          <img
+            src="/img/synergy-engineering-logo.webp"
+            alt="Company Logo"
+            className="footer-logo"
+            loading="lazy"
+          />
           <p className="company-text">Engineering refined, and redefined.</p>
           <div className="line-footer"></div>
         </div>
@@ -103,6 +107,16 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Synergy Engineering. All rights
             reserved.
           </p>
+          <div className="credits">
+            <p>Developed by </p>
+            <div className="credit-img-container">
+              <img
+                src="/img/code-one-white-01.webp"
+                alt="Code:ONE logo"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </footer>
     </AnimatedSection>

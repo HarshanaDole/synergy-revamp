@@ -13,7 +13,7 @@
 .about-hero::before {
   content: '';
   position: absolute;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   top: 0;
   left: 0;
   width: 100%;

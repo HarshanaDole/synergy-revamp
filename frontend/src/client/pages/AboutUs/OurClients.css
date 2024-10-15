@@ -1,85 +1,73 @@
 .our-clients {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    background-color: #f9f9f9; /* Adjust as needed */
-  }
-  
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9; /* Adjust as needed */
+}
+
+.line-ourclients {
+  width: 6%; /* Adjust width as needed */
+  border-top: 2px solid #0592c8; /* Adjust color and thickness as needed */
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto; /* Center align the line */
+}
+
+.our-clients h2 {
+  font-size: 3rem;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.clients-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.clients-image {
+  width: 130px;
+  height: 130px;
+  margin: 50px;
+  height: auto;
+  max-width: 200px;
+  display: block;
+}
+
+@media (min-width: 992px) {
   .line-ourclients {
-    width: 6%; /* Adjust width as needed */
-    border-top: 2px solid #0592c8; /* Adjust color and thickness as needed */
-    margin-bottom: 1rem;
-    margin-left: auto;
-    margin-right: auto; /* Center align the line */
+    width: 6%;
   }
-  
+}
+
+@media (max-width: 991px) {
+  .line-ourclients {
+    width: 7%;
+  }
+
   .our-clients h2 {
-    font-size: 3rem;
-    margin-top: 0rem;
-    margin-bottom: 2rem;
-    text-align: center;
+    font-size: 2.2rem;
   }
-  
-  .clients-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .clients-image {
-    width: calc(50% - 20px); /* Four images per row with some space in between */
-    margin: 50px;
-    height: auto;
-    max-width: 200px; /* Ensure the images do not exceed a certain width */
-    display: block;
+}
+
+@media (max-width: 576px) {
+  .line-ourclients {
+    width: 8%;
   }
 
-  @media (min-width: 992px) {
-    .line-ourclients {
-      width: 6%;
-    }
+  .our-clients h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .line-ourclients {
+    width: 10%;
   }
 
-  @media (max-width: 991px) {
-    .line-ourclients {
-      width: 7%;
-    }
-
-    .our-clients h2 {
-      font-size: 2.2rem;
-    }
+  .our-clients h2 {
+    font-size: 2.5rem;
   }
-
-  @media (max-width: 576px) {
-    .line-ourclients {
-      width: 8%;
-    }
-
-    .our-clients h2 {
-      font-size: 1.8rem;
-    }
-
-    .clients-image {
-      width: 50%;
-      margin: 50px;
-      margin-left: 120px;
-    }
-  } 
-
-  @media (max-width: 400px) {
-    .line-ourclients {
-      width: 10%;
-    }
-
-    .our-clients h2 {
-      font-size: 2.5rem;
-    }
-
-    .clients-image {
-      width: 50%;
-      margin: 50px;
-      margin-left: 100px;
-    }
-  } 
-  
+}

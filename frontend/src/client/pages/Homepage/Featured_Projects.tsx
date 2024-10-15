@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import AnimatedSection from "../../components/AnimatedSection";
@@ -12,6 +12,8 @@ import { API_BASE_URL } from "../../../network/config";
 const Projects = () => {
   const [projects, setProjects] = useState<ProjectModel[]>([]);
   const [currentProject, setCurrentProject] = useState(0);
+  const [backgroundImage, setBackgroundImage] = useState<string>("");
+  const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +21,10 @@ const Projects = () => {
       try {
         const fetchedProjects = await fetchProjects();
         setProjects(fetchedProjects);
+        // Set the background image immediately if there are projects
+        if (fetchedProjects.length > 0) {
+          setBackgroundImage(formatImageUrl(fetchedProjects[0].imageUrl));
+        }
       } catch (error) {
         console.error("Failed to load projects:", error);
       }
@@ -26,6 +32,36 @@ const Projects = () => {
 
     loadProjects();
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Lazy load the image
+          const imgElement = new Image();
+          imgElement.src = formatImageUrl(projects[currentProject].imageUrl);
+          imgElement.onload = () => {
+            containerRef.current!.style.backgroundImage = `url(${imgElement.src})`;
+          };
+        }
+      },
+      {
+        threshold: 0.1, // Adjust based on when you want to load the image
+      }
+    );
+
+    const currentContainer = containerRef.current; // Store ref value in a variable
+    if (currentContainer) {
+      observer.observe(currentContainer); // Start observing
+    }
+
+    // Cleanup function to unobserve
+    return () => {
+      if (currentContainer) {
+        observer.unobserve(currentContainer); // Stop observing
+      }
+    };
+  }, [currentProject, projects]); // Re-run effect when currentProject or projects change
 
   const handleSeeMoreClick = () => {
     navigate("/projects");
@@ -57,10 +93,9 @@ const Projects = () => {
           <div
             className="featured-projects-container"
             style={{
-              backgroundImage: `url(${formatImageUrl(
-                projects[currentProject].imageUrl
-              )})`,
+              backgroundImage: `url(${backgroundImage})`, // Use lazy-loaded background image
             }}
+            ref={containerRef} // Attach the ref here
           >
             <div className="featured-projects-overlay">
               <div className="project-left-content">

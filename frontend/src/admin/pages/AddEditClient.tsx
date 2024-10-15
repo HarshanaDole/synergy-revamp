@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import "../css/main.css";
 import Uploader from "../components/Uploader";
 import { useNavigate, useParams } from "react-router-dom";
@@ -117,59 +116,56 @@ const AddEditClient = () => {
   }
 
   return (
-    <>
-      <Header />
-      <section className="page-layout" id="section">
-        <div className="add-items">
-          <h1>{existingClient ? "Edit Client" : "Add New Client"}</h1>
-          <form
-            id="addEditClientForm"
-            onSubmit={handleSubmit(onClientSubmit)}
-            className="form-container"
-            encType="multipart/form-data"
-          >
-            <Uploader
-              onImageChange={handleImageChange}
-              setImage={setImage}
-              image={image}
-              setDefaultImage={setDefaultImage}
-              defaultImage={defaultImage}
-              showError={showImageError}
-            />
-            <div className="input-box-container">
-              <div className="title-container">
-                <span className="title">Name</span>
-                <span className="required">*</span>
-              </div>
-              <div
-                className={`input-box ${
-                  errors.name ? "invalid" : dirtyFields.name ? "valid" : ""
-                }`}
-              >
-                <input
-                  type="text"
-                  {...register("name", { required: "Name is Required" })}
-                  autoComplete="off"
-                />
-                {errors.name && (
-                  <p className="error-message">{errors.name.message}</p>
-                )}
-              </div>
+    <section className="page-layout" id="section">
+      <div className="add-items">
+        <h1>{existingClient ? "Edit Client" : "Add New Client"}</h1>
+        <form
+          id="addEditClientForm"
+          onSubmit={handleSubmit(onClientSubmit)}
+          className="form-container"
+          encType="multipart/form-data"
+        >
+          <Uploader
+            onImageChange={handleImageChange}
+            setImage={setImage}
+            image={image}
+            setDefaultImage={setDefaultImage}
+            defaultImage={defaultImage}
+            showError={showImageError}
+          />
+          <div className="input-box-container">
+            <div className="title-container">
+              <span className="title">Name</span>
+              <span className="required">*</span>
             </div>
-            <div className="btn-container">
-              <button
-                type="submit"
-                form="addEditClientForm"
-                className="add-btn"
-                onClick={validateForm}
-                disabled={isSubmitting}
-              >
-                {existingClient ? "Update Client" : "Add Client"}
-              </button>
+            <div
+              className={`input-box ${
+                errors.name ? "invalid" : dirtyFields.name ? "valid" : ""
+              }`}
+            >
+              <input
+                type="text"
+                {...register("name", { required: "Name is Required" })}
+                autoComplete="off"
+              />
+              {errors.name && (
+                <p className="error-message">{errors.name.message}</p>
+              )}
             </div>
-          </form>
-        </div>
-      </section>
+          </div>
+          <div className="btn-container">
+            <button
+              type="submit"
+              form="addEditClientForm"
+              className="add-btn"
+              onClick={validateForm}
+              disabled={isSubmitting}
+            >
+              {existingClient ? "Update Client" : "Add Client"}
+            </button>
+          </div>
+        </form>
+      </div>
       {showPopup && (
         <ActionPopup
           message={popupMessage}
@@ -178,7 +174,7 @@ const AddEditClient = () => {
           position="top-right"
         />
       )}
-    </>
+    </section>
   );
 };
 

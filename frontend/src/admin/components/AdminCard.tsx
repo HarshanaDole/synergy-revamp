@@ -20,7 +20,7 @@ const AdminCard: React.FC<AdminCardProps> = ({ admin, loggedInAdminId }) => {
   return (
     <div className="admin-card">
       <img
-        src="/img/User-Profile-PNG-High-Quality-Image.png"
+        src="/img/User-Profile-PNG-High-Quality-Image.webp"
         alt={admin.username}
         className="admin-profile-pic"
       />

@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import AnimatedSection from "../../components/AnimatedSection";
 import "./About.css";
-import aboutImage from "../../images/Whoweare.png";
 
 const About = () => {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ const About = () => {
       <div className="about-content">
         <div className="about-image">
           <AnimatedSection animationType="scaleUp">
-            <img src={aboutImage} alt="About Us" />
+            <img src="/img/Whoweare.webp" alt="About Us" loading="lazy" />
           </AnimatedSection>
         </div>
         <div className="about-text">

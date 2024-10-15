@@ -26,18 +26,6 @@
   z-index: 1; /* Ensure the overlay is above the background but below the content */
 }
 
-.hero-slide1 {
-  background-image: url("../../images/Hero1.png");
-}
-
-.hero-slide2 {
-  background-image: url("../../images/Hero2.png");
-}
-
-.hero-slide3 {
-  background-image: url("../../images/Hero3.png");
-}
-
 .hero-slide .content {
   position: relative; /* Ensure content is above the overlay */
   z-index: 2;

@@ -24,22 +24,19 @@
 }
 
 .image-container {
-  margin-bottom: 1rem;
+  width: 400px;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .image-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
-/* Add this specific styling for the mission image */
-.mission .image-container img {
-  margin-top: 4rem;
-  width: 70%;
-  height: auto;
-}
 .mission .text-container p {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 .vision .text-container p {
   margin-top: 3rem;
@@ -123,6 +120,10 @@
 
   .text-container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
   }
 
@@ -145,6 +146,10 @@
     padding: 1rem;
   }
 
+  .image-container {
+    width: 350px;
+  }
+
   .text-container h2 {
     font-size: 30px;
   }
@@ -159,5 +164,11 @@
 
   .final-text-story {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .image-container {
+    width: 300px;
   }
 }

@@ -16,7 +16,6 @@
 .contact-right {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   flex: 1;
   box-sizing: border-box;

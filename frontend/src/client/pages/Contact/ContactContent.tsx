@@ -4,7 +4,6 @@ import { MdEmail } from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import AnimatedSection from "../../components/AnimatedSection";
-import Image from "../../images/Contactus.png";
 import "./ContactContent.css";
 import { useForm } from "react-hook-form";
 import { ContactInput, createContact } from "../../../network/contacts_api";
@@ -117,7 +116,12 @@ const ContactContent = () => {
         </div>
         <div className="contact-right">
           <AnimatedSection animationType="fadeIn" delay={400}>
-            <img src={Image} alt="Contact Us" className="contact-image" />
+            <img
+              src="/img/Contactus.webp"
+              alt="Contact Us"
+              className="contact-image"
+              loading="lazy"
+            />
           </AnimatedSection>
           <div className="contact-info">
             {/* Phone */}

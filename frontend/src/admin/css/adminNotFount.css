@@ -63,12 +63,12 @@
 }
 
 .wave1 {
-  background: url(/public/img/Vector11.png) repeat-x;
+  background: url(/img/Vector11.webp) repeat-x;
   z-index: 10;
 }
 
 .wave2 {
-  background: url(/public/img/Vector12.png) repeat-x;
+  background: url(/img/Vector12.webp) repeat-x;
   bottom: 5vh;
   z-index: 0;
   height: 45vh;

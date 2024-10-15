@@ -1,14 +1,19 @@
 import React from "react";
 import AnimatedSection from "../../components/AnimatedSection";
 import "./HeroService.css";
-import heroImage from "../../images/services-cover.png";
 
 const HeroService = () => {
   return (
     <div className="services-page">
       <div className="hero-section" id="hero-section">
+        <div className="hero-overlay"></div>
         <AnimatedSection animationType="fadeIn">
-          <img src={heroImage} alt="Hero Section" className="hero-image" />
+          <img
+            src="/img/whatweoffer-2.webp"
+            alt="Hero Section"
+            className="hero-image"
+            loading="lazy"
+          />
         </AnimatedSection>
         <div className="hero-text">
           <h1>

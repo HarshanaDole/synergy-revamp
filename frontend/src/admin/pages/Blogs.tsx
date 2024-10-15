@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/main.css";
 import "../css/blogs.css";
-import Header from "../components/Header";
 import SearchBar from "../components/Search";
 import SmallButton from "../components/SmallButton";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -100,61 +99,59 @@ function BlogView() {
   };
 
   return (
-    <div>
-      <Header />
-      <section id="section">
-        <div className="flex">
-          <SearchBar
-            query={query}
-            onSearchChange={handleSearchChange}
-            placeholder="Search for Blog Title..."
-          />
-          <SmallButton to="/admin/blogs/add" />
-        </div>
+    <section id="section">
+      <div className="flex">
+        <SearchBar
+          query={query}
+          onSearchChange={handleSearchChange}
+          placeholder="Search for Blog Title..."
+        />
+        <SmallButton to="/admin/blogs/add" />
+      </div>
 
-        {Loading && <Spinner fullPage color="var(--main-color)" />}
-        {showLoadingError && (
-          <p style={{ textAlign: "center" }}>
-            Something went wrong. Please refresh the page.
-          </p>
-        )}
-        {!Loading && !showLoadingError && (
-          <div className="blog-grid">
-            {filteredBlogs.length > 0 ? (
-              filteredBlogs.map((blog) => (
-                <div key={blog.id} className="blog-card">
-                  <img
-                    src={formatImageUrl(blog.imageUrl)}
-                    alt={blog.headline}
-                    className="blog-image"
-                  />
-                  <h3 className="blog-title">{blog.headline}</h3>
-                  <p className="blog-author">By {blog.author}</p>
-                  <p className="blog-date">
-                    {new Date(blog.created_at).toLocaleDateString()}
-                  </p>
-                  <div className="blog-actions">
-                    <button
-                      className="blog-btn"
-                      onClick={() => handleEditClick(blog)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="blog-btn-del"
-                      onClick={() => handleDeleteClick(blog)}
-                    >
-                      Delete
-                    </button>
-                  </div>
+      {Loading && <Spinner fullPage color="var(--main-color)" />}
+      {showLoadingError && (
+        <p style={{ textAlign: "center" }}>
+          Something went wrong. Please refresh the page.
+        </p>
+      )}
+      {!Loading && !showLoadingError && (
+        <div className="blog-grid">
+          {filteredBlogs.length > 0 ? (
+            filteredBlogs.map((blog) => (
+              <div key={blog.id} className="blog-card">
+                <img
+                  src={formatImageUrl(blog.imageUrl)}
+                  alt={blog.headline}
+                  className="blog-image"
+                  loading="lazy"
+                />
+                <h3 className="blog-title">{blog.headline}</h3>
+                <p className="blog-author">By {blog.author}</p>
+                <p className="blog-date">
+                  {new Date(blog.created_at).toLocaleDateString()}
+                </p>
+                <div className="blog-actions">
+                  <button
+                    className="blog-btn"
+                    onClick={() => handleEditClick(blog)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="blog-btn-del"
+                    onClick={() => handleDeleteClick(blog)}
+                  >
+                    Delete
+                  </button>
                 </div>
-              ))
-            ) : (
-              <p style={{ textAlign: "center" }}>No blogs available.</p>
-            )}
-          </div>
-        )}
-      </section>
+              </div>
+            ))
+          ) : (
+            <p style={{ textAlign: "center" }}>No blogs available.</p>
+          )}
+        </div>
+      )}
       {showPopup && (
         <ActionPopup
           message={popupMessage}
@@ -171,7 +168,7 @@ function BlogView() {
           type="warning"
         />
       )}
-    </div>
+    </section>
   );
 }
 

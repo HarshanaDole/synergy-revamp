@@ -22,7 +22,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px);
 }
 
 .header-container::before {
@@ -116,13 +115,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
 }
 
 .line-global {
   width: 15%;
   border-top: 2px solid #0592c8;
-  margin: 5rem auto 1rem;
+  margin: 2rem auto 1rem;
 }
 
 .final-text-global {
@@ -157,10 +155,6 @@
   .location .react-icons {
     font-size: 3rem;
   }
-
-  .final-text {
-    font-size: 22px;
-  }
 }
 
 @media (max-width: 992px) {
@@ -182,10 +176,6 @@
 
   .location .react-icons {
     font-size: 2.5rem;
-  }
-
-  .final-text {
-    font-size: 20px;
   }
 }
 

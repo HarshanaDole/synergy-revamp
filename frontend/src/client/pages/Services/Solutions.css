@@ -44,7 +44,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .solution-card .content {
@@ -185,7 +185,7 @@
 
   .solution-card ul li {
     font-size: 1.2rem;
-    padding-left: 1.5rem;
+    padding-left: 2rem;
   }
 
   .solution-card ul li:before {
@@ -194,6 +194,12 @@
 
   .line-solution-last {
     width: 8%;
+  }
+}
+
+@media (max-width: 768px) {
+  .final-text-solutionSec {
+    font-size: 20px;
   }
 }
 
@@ -229,7 +235,7 @@
 
   .solution-card ul li {
     font-size: 1rem;
-    padding-left: 1rem;
+    padding-left: 1.5rem;
   }
 
   .solution-card ul li:before {
@@ -238,5 +244,9 @@
 
   .line-solution-last {
     width: 10%;
+  }
+
+  .final-text-solutionSec {
+    font-size: 18px;
   }
 }

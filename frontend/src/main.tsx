@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
@@ -26,6 +26,7 @@ import BlogDetailed from "./client/pages/Blogs/BlogDetailed";
 import SingleMessagePage from "./admin/pages/MessageView";
 import BlogView from "./admin/pages/Blogs";
 import AddEditBlog from "./admin/pages/AddEditBlog";
+import AdminLayout from "./admin/AdminLayout";
 
 const router = createBrowserRouter([
   {
@@ -65,9 +66,67 @@ const router = createBrowserRouter([
     path: "/admin",
     element: (
       <UserProvider>
-        <Dashboard />
+        <AdminLayout /> {/* Use the AdminLayout to wrap all admin routes */}
       </UserProvider>
     ),
+    children: [
+      {
+        path: "",
+        element: <Dashboard />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "projects",
+        element: <Projects />,
+      },
+      {
+        path: "projects/add",
+        element: <AddEditProject />,
+      },
+      {
+        path: "projects/edit/:id",
+        element: <AddEditProject />,
+      },
+      {
+        path: "clients",
+        element: <Clients />,
+      },
+      {
+        path: "clients/add",
+        element: <AddEditClient />,
+      },
+      {
+        path: "clients/edit/:id",
+        element: <AddEditClient />,
+      },
+      {
+        path: "admins",
+        element: <Admins />,
+      },
+      {
+        path: "messages",
+        element: <Messages />,
+      },
+      {
+        path: "messages/:id",
+        element: <SingleMessagePage />,
+      },
+      {
+        path: "blogs",
+        element: <BlogView />,
+      },
+      {
+        path: "blogs/add",
+        element: <AddEditBlog />,
+      },
+      {
+        path: "blogs/edit/:id",
+        element: <AddEditBlog />,
+      },
+    ],
   },
   {
     path: "/admin/login",
@@ -77,114 +136,10 @@ const router = createBrowserRouter([
     path: "/admin/register",
     element: <Register />,
   },
-  {
-    path: "/admin/profile",
-    element: (
-      <UserProvider>
-        <Profile />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/projects",
-    element: (
-      <UserProvider>
-        <Projects />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/projects/add",
-    element: (
-      <UserProvider>
-        <AddEditProject />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/projects/edit/:id",
-    element: (
-      <UserProvider>
-        <AddEditProject />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/clients",
-    element: (
-      <UserProvider>
-        <Clients />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/clients/add",
-    element: (
-      <UserProvider>
-        <AddEditClient />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/clients/edit/:id",
-    element: (
-      <UserProvider>
-        <AddEditClient />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/admins",
-    element: (
-      <UserProvider>
-        <Admins />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/messages",
-    element: (
-      <UserProvider>
-        <Messages />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/messages/:id",
-    element: (
-      <UserProvider>
-        <SingleMessagePage />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/blogs",
-    element: (
-      <UserProvider>
-        <BlogView />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/blogs/add",
-    element: (
-      <UserProvider>
-        <AddEditBlog />
-      </UserProvider>
-    ),
-  },
-  {
-    path: "/admin/blogs/edit/:id",
-    element: (
-      <UserProvider>
-        <AddEditBlog />
-      </UserProvider>
-    ),
-  },
 ]);
 
 const Main = () => {
-  const [isSplashvisible, setIsSplashVisible] = useState(false);
+  const [isSplashVisible, setIsSplashVisible] = useState(false);
 
   useEffect(() => {
     const hasVisited = localStorage.getItem("hasVisited");
@@ -201,14 +156,18 @@ const Main = () => {
 
   return (
     <>
-      {isSplashvisible ? (
+      {isSplashVisible ? (
         <SplashScreen onAnimationEnd={handleAnimationEnd} />
       ) : (
-        <RouterProvider router={router} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <RouterProvider router={router} />
+        </Suspense>
       )}
     </>
   );
 };
+
+export default Main;
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

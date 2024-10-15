@@ -30,6 +30,36 @@
   font-weight: bold;
 }
 
+.skeleton-loader {
+  display: flex;
+  justify-content: space-around; /* Adjust for spacing */
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px; /* Add padding around the loader */
+}
+
+.skeleton-logo {
+  background-color: #e0e0e0; /* Light gray for the skeleton */
+  border-radius: 4px;
+  width: 100px; /* Match the max width of your client logos */
+  height: 100px; /* Match the max height of your client logos */
+  margin: 10px; /* Space between each skeleton logo */
+  animation: pulse 1.5s infinite; /* Add a pulsing effect */
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0; /* Slightly lighter gray */
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
 /* Responsive styles */
 @media (max-width: 1200px) {
   .header-test {

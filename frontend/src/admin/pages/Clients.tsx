@@ -1,6 +1,5 @@
 import "../css/main.css";
 import "../css/table.css";
-import Header from "../components/Header";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Client as ClientModel } from "../models/client";
 import { HiDotsVertical } from "react-icons/hi";
@@ -124,6 +123,7 @@ function Clients() {
               src={formatImageUrl(client.imageUrl)}
               alt={client.name}
               className="image"
+              loading="lazy"
             />
           </td>
           <td>{client.name}</td>
@@ -159,48 +159,45 @@ function Clients() {
   );
 
   return (
-    <div>
-      <Header />
-      <section id="section">
-        <div className="flex">
-          <SearchBar
-            query={query}
-            onSearchChange={handleSearchChange}
-            placeholder="Search Client..."
-          />
-          <SmallButton to="/admin/clients/add" />
-        </div>
+    <section id="section">
+      <div className="flex">
+        <SearchBar
+          query={query}
+          onSearchChange={handleSearchChange}
+          placeholder="Search Client..."
+        />
+        <SmallButton to="/admin/clients/add" />
+      </div>
 
-        {Loading && <Spinner fullPage color="var(--main-color)" />}
-        {showLoadingError && (
-          <p style={{ textAlign: "center" }}>
-            Something went wrong. Please refresh the page.
-          </p>
-        )}
-        {!Loading && !showLoadingError && (
-          <table className="tbl">
-            <thead>
+      {Loading && <Spinner fullPage color="var(--main-color)" />}
+      {showLoadingError && (
+        <p style={{ textAlign: "center" }}>
+          Something went wrong. Please refresh the page.
+        </p>
+      )}
+      {!Loading && !showLoadingError && (
+        <table className="tbl">
+          <thead>
+            <tr>
+              <th className="hd-id"></th>
+              <th className="hd-image">Image</th>
+              <th className="hd-name">Name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {clients.length > 0 ? (
+              clientsTable
+            ) : (
               <tr>
-                <th className="hd-id"></th>
-                <th className="hd-image">Image</th>
-                <th className="hd-name">Name</th>
-                <th></th>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  You don't have any projects yet.
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {clients.length > 0 ? (
-                clientsTable
-              ) : (
-                <tr>
-                  <td colSpan={4} style={{ textAlign: "center" }}>
-                    You don't have any projects yet.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        )}
-      </section>
+            )}
+          </tbody>
+        </table>
+      )}
       {showPopup && (
         <ActionPopup
           message={popupMessage}
@@ -217,7 +214,7 @@ function Clients() {
           type="warning"
         />
       )}
-    </div>
+    </section>
   );
 }
 

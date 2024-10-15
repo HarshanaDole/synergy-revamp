@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'storage/images/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5173', 'https://synergyenglk.com'],
+    'allowed_origins' => ['http://localhost:5173', 'https://synergyenglk.com', 'https://www.synergyenglk.com'],
 
     'allowed_origins_patterns' => [],
 

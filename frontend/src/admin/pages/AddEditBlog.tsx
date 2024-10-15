@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 import ActionPopup from "../components/ActionPopup";
 import Uploader from "../components/Uploader";
-import Header from "../components/Header";
 import "../css/addBlog.css";
 import { BlogInput } from "../../network/blogs_api";
 import * as BlogsApi from "../../network/blogs_api";
@@ -126,170 +125,167 @@ const AddEditBlog = () => {
   }
 
   return (
-    <>
-      <Header />
-      <section className="page-layout" id="section">
-        <div className="add-items">
-          <h1>{existingBlog ? "Edit Blog" : "Add New Blog"}</h1>
-          <form
-            id="addEditBlogForm"
-            onSubmit={handleSubmit(onBlogSubmit)}
-            className="form-container"
-            encType="multipart/form-data"
-          >
-            <Uploader
-              setImage={setImage}
-              onImageChange={handleImageChange}
-              image={image}
-              setDefaultImage={setDefaultImage}
-              defaultImage={defaultImage}
-              showError={showImageError}
-            />
-            <div className="blog-input">
-              <div className="input-row">
-                <div className="input-box-container">
-                  <div className="title-container">
-                    <span className="title">Headline</span>
-                    <span className="required">*</span>
-                  </div>
-                  <div
-                    className={`input-box ${
-                      errors.headline
-                        ? "invalid"
-                        : dirtyFields.headline
-                        ? "valid"
-                        : ""
-                    }`}
-                  >
-                    <input
-                      type="text"
-                      {...register("headline", {
-                        required: "Headline is required",
-                      })}
-                      autoComplete="off"
-                    />
-                    {errors.headline && (
-                      <p className="error-message">{errors.headline.message}</p>
-                    )}
-                  </div>
+    <section className="page-layout" id="section">
+      <div className="add-items">
+        <h1>{existingBlog ? "Edit Blog" : "Add New Blog"}</h1>
+        <form
+          id="addEditBlogForm"
+          onSubmit={handleSubmit(onBlogSubmit)}
+          className="form-container"
+          encType="multipart/form-data"
+        >
+          <Uploader
+            setImage={setImage}
+            onImageChange={handleImageChange}
+            image={image}
+            setDefaultImage={setDefaultImage}
+            defaultImage={defaultImage}
+            showError={showImageError}
+          />
+          <div className="blog-input">
+            <div className="input-row">
+              <div className="input-box-container">
+                <div className="title-container">
+                  <span className="title">Headline</span>
+                  <span className="required">*</span>
                 </div>
-
-                <div className="input-box-container">
-                  <div className="title-container">
-                    <span className="title">Author</span>
-                    <span className="required">*</span>
-                  </div>
-                  <div
-                    className={`input-box ${
-                      errors.author
-                        ? "invalid"
-                        : dirtyFields.author
-                        ? "valid"
-                        : ""
-                    }`}
-                  >
-                    <input
-                      type="text"
-                      {...register("author", {
-                        required: "Author is required",
-                      })}
-                      autoComplete="off"
-                    />
-                    {errors.author && (
-                      <p className="error-message">{errors.author.message}</p>
-                    )}
-                  </div>
+                <div
+                  className={`input-box ${
+                    errors.headline
+                      ? "invalid"
+                      : dirtyFields.headline
+                      ? "valid"
+                      : ""
+                  }`}
+                >
+                  <input
+                    type="text"
+                    {...register("headline", {
+                      required: "Headline is required",
+                    })}
+                    autoComplete="off"
+                  />
+                  {errors.headline && (
+                    <p className="error-message">{errors.headline.message}</p>
+                  )}
                 </div>
               </div>
 
-              <div className="subsection-container">
-                {fields.map((section, index) => (
-                  <div key={section.id}>
-                    <div className="input-box-container">
-                      <div className="title-container">
-                        <span className="title">Subheading {index + 1}</span>
-                        <span className="required">*</span>
-                      </div>
-                      <div
-                        className={`input-box ${
-                          errors.subheadings
-                            ? "invalid"
-                            : dirtyFields.subheadings
-                            ? "valid"
-                            : ""
-                        }`}
-                      >
-                        <input
-                          type="text"
-                          {...register(`subheadings.${index}.subheading`, {
-                            required: "Subheading is required",
-                          })}
-                          defaultValue={section.subheading}
-                        />
-                        {errors.subheadings?.[index]?.subheading && (
-                          <p className="error-message">
-                            {errors?.subheadings[index]?.subheading?.message}
-                          </p>
-                        )}
-                      </div>
+              <div className="input-box-container">
+                <div className="title-container">
+                  <span className="title">Author</span>
+                  <span className="required">*</span>
+                </div>
+                <div
+                  className={`input-box ${
+                    errors.author
+                      ? "invalid"
+                      : dirtyFields.author
+                      ? "valid"
+                      : ""
+                  }`}
+                >
+                  <input
+                    type="text"
+                    {...register("author", {
+                      required: "Author is required",
+                    })}
+                    autoComplete="off"
+                  />
+                  {errors.author && (
+                    <p className="error-message">{errors.author.message}</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="subsection-container">
+              {fields.map((section, index) => (
+                <div key={section.id}>
+                  <div className="input-box-container">
+                    <div className="title-container">
+                      <span className="title">Subheading {index + 1}</span>
+                      <span className="required">*</span>
                     </div>
-                    <div className="input-area-container">
-                      <div className="title-container">
-                        <span className="title">Content {index + 1}</span>
-                        <span className="required">*</span>
-                      </div>
-                      <div
-                        className={`input-area ${
-                          errors.subheadings
-                            ? "invalid"
-                            : dirtyFields.subheadings
-                            ? "valid"
-                            : ""
-                        }`}
-                      >
-                        <textarea
-                          {...register(`subheadings.${index}.content`, {
-                            required: "Content is required",
-                          })}
-                          defaultValue={section.content}
-                        ></textarea>
-                      </div>
-                      {errors.subheadings?.[index]?.content && (
+                    <div
+                      className={`input-box ${
+                        errors.subheadings
+                          ? "invalid"
+                          : dirtyFields.subheadings
+                          ? "valid"
+                          : ""
+                      }`}
+                    >
+                      <input
+                        type="text"
+                        {...register(`subheadings.${index}.subheading`, {
+                          required: "Subheading is required",
+                        })}
+                        defaultValue={section.subheading}
+                      />
+                      {errors.subheadings?.[index]?.subheading && (
                         <p className="error-message">
-                          {errors?.subheadings[index]?.content?.message}
+                          {errors?.subheadings[index]?.subheading?.message}
                         </p>
                       )}
                     </div>
-                    <button
-                      type="button"
-                      className="remove-button"
-                      onClick={() => remove(index)}
-                    >
-                      Remove
-                    </button>
                   </div>
-                ))}
-              </div>
+                  <div className="input-area-container">
+                    <div className="title-container">
+                      <span className="title">Content {index + 1}</span>
+                      <span className="required">*</span>
+                    </div>
+                    <div
+                      className={`input-area ${
+                        errors.subheadings
+                          ? "invalid"
+                          : dirtyFields.subheadings
+                          ? "valid"
+                          : ""
+                      }`}
+                    >
+                      <textarea
+                        {...register(`subheadings.${index}.content`, {
+                          required: "Content is required",
+                        })}
+                        defaultValue={section.content}
+                      ></textarea>
+                    </div>
+                    {errors.subheadings?.[index]?.content && (
+                      <p className="error-message">
+                        {errors?.subheadings[index]?.content?.message}
+                      </p>
+                    )}
+                  </div>
+                  <button
+                    type="button"
+                    className="remove-button"
+                    onClick={() => remove(index)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
             </div>
-            <div className="btn-container">
-              <button
-                type="button"
-                className="add-button"
-                onClick={() => append({ subheading: "", content: "" })}
-              >
-                + Add Subheading & Content
-              </button>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="submit-button"
-              >
-                {isSubmitting ? "Saving..." : "Save Blog"}
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+          </div>
+          <div className="btn-container">
+            <button
+              type="button"
+              className="add-button"
+              onClick={() => append({ subheading: "", content: "" })}
+            >
+              + Add Subheading & Content
+            </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="submit-button"
+            >
+              {isSubmitting ? "Saving..." : "Save Blog"}
+            </button>
+          </div>
+        </form>
+      </div>
       {showPopup && (
         <ActionPopup
           message={popupMessage}
@@ -298,7 +294,7 @@ const AddEditBlog = () => {
           position="top-right"
         />
       )}
-    </>
+    </section>
   );
 };
 

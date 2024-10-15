@@ -1,6 +1,7 @@
-import React from 'react';
-import { useSpring, animated, config } from 'react-spring';
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import PropTypes from "prop-types";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
 const AnimatedSection = ({ children, animationType, delay = 0 }) => {
   const [ref, inView] = useInView({
@@ -10,19 +11,19 @@ const AnimatedSection = ({ children, animationType, delay = 0 }) => {
 
   const animations = {
     slideInFromBottom: {
-      transform: inView ? 'translateY(0)' : 'translateY(100px)',
+      transform: inView ? "translateY(0)" : "translateY(100px)",
       opacity: inView ? 1 : 0,
     },
     slideInFromTop: {
-      transform: inView ? 'translateY(0)' : 'translateY(-100px)',
+      transform: inView ? "translateY(0)" : "translateY(-100px)",
       opacity: inView ? 1 : 0,
     },
     slideInFromLeft: {
-      transform: inView ? 'translateX(0)' : 'translateX(-100px)',
+      transform: inView ? "translateX(0)" : "translateX(-100px)",
       opacity: inView ? 1 : 0,
     },
     slideInFromRight: {
-      transform: inView ? 'translateX(0)' : 'translateX(100px)',
+      transform: inView ? "translateX(0)" : "translateX(100px)",
       opacity: inView ? 1 : 0,
     },
     fadeIn: {
@@ -30,35 +31,35 @@ const AnimatedSection = ({ children, animationType, delay = 0 }) => {
       delay: delay,
     },
     scaleUp: {
-      transform: inView ? 'scale(1)' : 'scale(0)',
+      transform: inView ? "scale(1)" : "scale(0)",
       opacity: inView ? 1 : 0,
       config: { tension: 120, friction: 80 },
       delay: delay,
     },
     popUp: {
-      transform: inView ? 'scale(1)' : 'scale(0.3)',
+      transform: inView ? "scale(1)" : "scale(0.3)",
       opacity: inView ? 1 : 0,
     },
     rotate: {
-      transform: inView ? 'rotate(0deg)' : 'rotate(180deg)',
+      transform: inView ? "rotate(0deg)" : "rotate(180deg)",
       opacity: inView ? 1 : 0,
     },
     zoomIn: {
-      transform: inView ? 'scale(1)' : 'scale(0.5)',
+      transform: inView ? "scale(1)" : "scale(0.5)",
       opacity: inView ? 1 : 0,
       delay: delay,
     },
     staggeredFadeIn: {
       opacity: inView ? 1 : 0,
-      transform: inView ? 'translateY(0)' : 'translateY(20px)',
+      transform: inView ? "translateY(0)" : "translateY(20px)",
     },
     slideInfromDiagonal: {
-      transform: inView ? 'translate(0, 0)' : 'translate(-100px, -100px)',
+      transform: inView ? "translate(0, 0)" : "translate(-100px, -100px)",
       opacity: inView ? 1 : 0,
       delay: delay,
     },
     fadeInWithScale: {
-      transform: inView ? 'scale(1)' : 'scale(0.95)',
+      transform: inView ? "scale(1)" : "scale(0.95)",
       opacity: inView ? 1 : 0,
       config: { tension: 50, friction: 150 },
       delay: delay,
@@ -76,6 +77,26 @@ const AnimatedSection = ({ children, animationType, delay = 0 }) => {
       {children}
     </animated.div>
   );
+};
+
+// Add prop-types validation
+AnimatedSection.propTypes = {
+  children: PropTypes.node.isRequired, // children can be any renderable content
+  animationType: PropTypes.oneOf([
+    "slideInFromBottom",
+    "slideInFromTop",
+    "slideInFromLeft",
+    "slideInFromRight",
+    "fadeIn",
+    "scaleUp",
+    "popUp",
+    "rotate",
+    "zoomIn",
+    "staggeredFadeIn",
+    "slideInfromDiagonal",
+    "fadeInWithScale",
+  ]).isRequired, // animationType is a required string from the list
+  delay: PropTypes.number, // delay is an optional number
 };
 
 export default AnimatedSection;

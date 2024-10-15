@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import "./Header.css";
-import logo from "../images/Synergy_logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
@@ -31,7 +30,12 @@ const Header = () => {
     <AnimatedSection animationType="slideInFromLeft">
       <header className="header-client">
         <div className="header-left">
-          <img src={logo} alt="Logo" className="logo-header-client" />
+          <img
+            src="/img/Synergy_logo.webp"
+            alt="Logo"
+            className="logo-header-client"
+            loading="lazy"
+          />
           <button className="menu-toggle" onClick={toggleMenu}>
             {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>

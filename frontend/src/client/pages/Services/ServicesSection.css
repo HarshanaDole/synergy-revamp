@@ -48,7 +48,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 3rem;
 }
 
 .service-description {
@@ -70,13 +69,13 @@
 
 .service-image {
   flex: 1;
-  text-align: right;
+  max-width: 400px;
 }
 
 .service-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
   border-radius: 10px;
+  object-fit: contain;
 }
 
 .line-servicesSec-last {
@@ -111,11 +110,21 @@
   }
 
   .service-description {
-    padding: 1rem;
+    padding: 0;
   }
 
   .service-image {
     margin-top: 2rem;
+  }
+
+  .service-image img {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .final-text-serviceSec {
+    font-size: 20px;
   }
 }
 
@@ -127,15 +136,18 @@
 
   .services-section h2 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 
   .services-buttons-container {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 1rem;
   }
 
   .service-button {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
     width: 80%;
   }
 
@@ -148,6 +160,12 @@
   }
 
   .final-text-serviceSec {
-    font-size: 1.3rem;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-button {
+    width: 100%;
   }
 }
